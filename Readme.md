@@ -14,7 +14,7 @@
 ## # Docker 启动
 
 ```C
-git clone https://github.com/feng4/ARL-2.6.2.git
+git clone https://github.com/Feng4/ARL-2.6.2.git
 
 //进入项目文件夹
 cd ARL-2.6.2/docker/
