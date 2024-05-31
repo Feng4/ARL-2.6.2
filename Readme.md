@@ -42,55 +42,20 @@
 
 ## 5# Docker 启动
 
-这里感谢 [@本间白猫](https://github.com/honmashironeko) 师傅，一起研究源码并[解决了相关问题](https://github.com/honmashironeko/ARL-docker)
 
 ```C
 //下载部署脚本项目
-git clone https://github.com/honmashironeko/ARL-docker.git
+git clone https://github.com/feng4/ARL-2.6.2.git
 
 //进入项目文件夹
-cd ARL-docker/
+cd docker/
 
+docker-compose pull  
+docker volume create arl_db
 //添加运行权限
-chmod +x setup_docker.sh
-
-//执行部署脚本
-bash setup_docker.sh
+docker-compose up -d
 ```
 
-Centos以外的版本请注意，脚本采用的是yum安装工具，如果是apt的话请运行：`apt install docker.io -y`
-
-
-
-输入数字确认安装版本：1 or 2
-
-```C
-//安装完成之后进入容器
-docker exec -it arl /bin/bash
-
-//开始完成ARL部署
-bash /root/arl/set.sh
-```
-
-- 前往ARL-Web页面：`https://IP:5003/`
-- 账号：`admin`，密码：`honmashironeko`
-
-#### Docker安装问题-1：ACCESS_REFUSED
-
-具体为通过Docker方式部署后，添加任务报如下错误 `ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN.`，解决方法如下：
-
-先进入容器：`docker exec -it arl /bin/bash`
-
-执行以下命令：
-
-```
-rabbitmqctl add_user arl arlpassword
-rabbitmqctl set_user_tags arl administrator
-rabbitmqctl add_vhost arlv2host
-rabbitmqctl set_permissions -p arlv2host arl ".*" ".*" ".*"
-```
-
-经过测试，docker在PUSH上传后，其他地方PULL下载的时候会出现错误，因此需要这步操作。
 
 ## 6# 截图
 
