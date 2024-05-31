@@ -41,8 +41,6 @@
 
 ## 5# Docker 启动
 
-这里感谢 [@本间白猫](https://github.com/honmashironeko) 师傅，一起研究源码并[解决了相关问题](https://github.com/honmashironeko/ARL-docker)
-
 ```C
 //下载部署脚本项目
 git clone https://github.com/feng4/ARL-2.6.2.git
